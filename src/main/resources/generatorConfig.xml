@@ -41,7 +41,7 @@
             targetPackage     指定生成的model生成所在的包名
             targetProject     指定在该项目下所在的路径
         -->
-        <javaModelGenerator targetPackage="${mybatis.com.mini.model}" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="${mybatis.com.entity}" targetProject="src/main/java">
             <property name="mergeable" value="false"></property>
 
             <!-- 是否对model添加 构造函数 -->
@@ -71,7 +71,7 @@
                 type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
                 type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
         -->
-        <javaClientGenerator targetPackage="${mybatis.com.mini.dao}" targetProject="src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="${mybatis.com.mapper}" targetProject="src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value=""/>
             <property name="exampleMethodVisibility" value=""/>
             <property name="methodNameCalculator" value=""/>
@@ -80,14 +80,17 @@
             <property name="rootInterface" value=""/>
         </javaClientGenerator>
         <!-- 配置数据库表 -->
-<!--        <table tableName="stock_subscribe" schema="mini_stock">-->
+<!--        <table tableName="user" schema="found">-->
 <!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
 <!--        </table>-->
-<!--        <table tableName="stock" schema="mini_stock">-->
+<!--        <table tableName="found_subscribe" schema="mini_stock">-->
 <!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
 <!--        </table>-->
-<!--            <table tableName="wx_push_record" schema="mini_stock">-->
-<!--                    <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
-<!--            </table>-->
+<!--        <table tableName="found_trade_record" schema="mini_stock">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="found_trend_record" schema="mini_stock">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
     </context>
 </generatorConfiguration>
