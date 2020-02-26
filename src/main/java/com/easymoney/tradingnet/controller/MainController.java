@@ -1,5 +1,6 @@
 package com.easymoney.tradingnet.controller;
 
+import com.easymoney.tradingnet.service.common.QueryService;
 import com.easymoney.tradingnet.service.mail.MailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +27,8 @@ public class MainController {
 
     @Autowired
     private MailService mailService;
+    @Autowired
+    private QueryService queryService;
 
     @PostMapping("/execute")
     public String execute(){
@@ -45,6 +48,12 @@ public class MainController {
     @PostMapping("sendMail")
     public String sendMailTest(){
         mailService.sendSimpleMail("15611295706@163.com", "hello World", "网格交易");
+        return "SUCCESS";
+    }
+
+    @PostMapping("select")
+    public String select(){
+        queryService.getAllSubScribe();
         return "SUCCESS";
     }
 
