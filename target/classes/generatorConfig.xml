@@ -95,5 +95,17 @@
 <!--        <table tableName="found_trend_record" schema="mini_stock">-->
 <!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
 <!--        </table>-->
+<!--        <table tableName="found_trend_expect_record" schema="mini_stock">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="found_single_day_earnings" schema="mini_stock">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="user_found_assets" schema="mini_stock">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="user_found_assets_operation" schema="mini_stock">-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+<!--        </table>-->
     </context>
 </generatorConfiguration>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easymoney.tradingnet.mapper.CustomMapper">
+    <resultMap id="simpleFoundVO" type="com.easymoney.tradingnet.vo.SimpleFoundVO"/>
+    <select id="getAllSubscribeFound" resultMap="simpleFoundVO">
+        select max(found_name) as foundName, found_code as foundCode
+        from found_subscribe
+        where deleted = 0
+        group by found_code
+    </select>
+    <select id="getSubscribeUserIdList" resultType="java.lang.Long">
+        select distinct user_id
+        from found_subscribe
+        where deleted = 0
+    </select>
+
+    <select id="getAssetsUserIdList" resultType="java.lang.Long">
+        select distinct user_id
+        from user_found_assets
+    </select>
+
+    <select id="getAllAssetsFoundList" resultMap="simpleFoundVO">
+        select max(found_name) as foundName, found_code as foundCode
+        from user_found_assets
+        group by found_code
+    </select>
+</mapper>

@@ -1,5 +1,7 @@
 package com.easymoney.tradingnet.impl.mail;
 
+import com.easymoney.tradingnet.entity.User;
+import com.easymoney.tradingnet.mapper.UserMapper;
 import com.easymoney.tradingnet.service.mail.MailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +20,8 @@ public class MailServiceImpl implements MailService {
 
     @Autowired
     private JavaMailSender mailSender;
+    @Autowired
+    private UserMapper userMapper;
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -35,5 +39,12 @@ public class MailServiceImpl implements MailService {
         }
 
         logger.info("发送成功");
+    }
+
+    @Override
+    public void sendSimpleMailToUser(Long userId, String content, String subject) {
+        User user = userMapper.selectByPrimaryKey(userId);
+        String address = user.getEmail();
+        sendSimpleMail(address, content, subject);
     }
 }

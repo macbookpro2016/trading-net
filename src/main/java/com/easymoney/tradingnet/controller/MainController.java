@@ -1,5 +1,7 @@
 package com.easymoney.tradingnet.controller;
 
+import com.easymoney.tradingnet.job.MyJob;
+import com.easymoney.tradingnet.job.NetTradingNotifyJob;
 import com.easymoney.tradingnet.service.common.QueryService;
 import com.easymoney.tradingnet.service.mail.MailService;
 import org.slf4j.Logger;
@@ -29,6 +31,8 @@ public class MainController {
     private MailService mailService;
     @Autowired
     private QueryService queryService;
+    @Autowired
+    private MyJob netTradingNotifyJob;
 
     @PostMapping("/execute")
     public String execute(){
@@ -53,7 +57,13 @@ public class MainController {
 
     @PostMapping("select")
     public String select(){
-        queryService.getAllSubScribe();
+        queryService.getAllSubscribe();
+        return "SUCCESS";
+    }
+
+    @PostMapping("suggest")
+    public String suggest(){
+        netTradingNotifyJob.execute();
         return "SUCCESS";
     }
 

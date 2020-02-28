@@ -16,4 +16,13 @@ public interface MailService {
      */
     void sendSimpleMail(String toAddress, String content, String subject);
 
+    /**
+     * 发送给用户简单邮件
+     *
+     * @param userId 用户id
+     * @param content 内容
+     * @param subject 主题
+     */
+    void sendSimpleMailToUser(Long userId, String content, String subject);
+
 }
